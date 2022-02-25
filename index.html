@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The JavaScript Lottery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <h1>The JavaScript Lottery</h1>
+        <p>Click the button to draw a number.</p>
+
+
+<button onclick="start()">Let's Play!</button>
+
+<p id = "randnum" >Your Number: 0 </p>
+
+
+<script>
+  var counter = 0
+  var loop;
+
+  function start() {
+      loop = setInterval(getrndinteger,100);
+      counter += 20
+  }
+
+  function getrndinteger() {
+      if (counter <= 0) {
+          clearInterval(loop);
+          results();
+           }
+    else {
+        document.getElementById("randnum").innerHTML = 'Your Number: ' + Math.floor(Math.random()* 100000)
+    }
+    counter -= 1;
+  }
+
+  function results() {
+    if (document.getElementById("randnum").innerHTML <= 1000) {
+          alert("You've won!")
+      }
+      else {
+          alert("Too bad! You've lost!")
+      }
+    }
+
+        </script>
+
+        <p>* Any number in the 1 to 1000 range wins!</p>
+    </section>
+</body>
+</html>
